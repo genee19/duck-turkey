@@ -10,8 +10,15 @@ window.Game = React.createClass({
 	handleChange: function(event){
 		// locate form from event.target
 		$form = $(event.target).closest('form.game__form');
-		$.post($form.attr('action'), $form.serialize()).done(function(){
-		})
+		// serialize form and send AJAX request to server. 
+		$.post(
+			$form.attr('action'), 
+			$form.serialize()
+		).done($.proxy(function(result){
+				// replace state with result
+				this.setState(result)
+			}, this) 
+		)
 	},
 	frames: function() {
 		var result = [];
