@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root "games#index"
+
+  post 'game/calc' => "games#new", as: 'new_game'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
