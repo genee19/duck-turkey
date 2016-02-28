@@ -196,7 +196,7 @@ class GameTest < ActiveSupport::TestCase
 		game.rolls = Array.new(12, 10) # 12 times strike
 		result = game.scores
 		assert result.score == 300, 'Resulting score of a perfect game (12 strikes in a row) should be 300'
-		assert result.frames[9][:rolls].size == 3
+		assert result.frames[9][:rolls] == [10, 10, 10], 'The last frame should contain all 3 strikes'
 	end
 	
 	test 'final spare' do

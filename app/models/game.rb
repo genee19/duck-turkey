@@ -110,6 +110,11 @@ class Game
   		break if @over
   	end
   	
+  	if frames.size == 11
+  		frames[9][:rolls].concat(frames[10][:rolls])
+  		frames.delete(10)
+  	end
+
   	result.frames = frames
   	result.over = @over
   	return result
