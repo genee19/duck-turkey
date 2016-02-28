@@ -7,16 +7,21 @@ window.Game = React.createClass({
 	    	"over":false
     	};
 	},
+	newFrameWhenNecessary: function() {
+		if (!this.state.write_to_last_frame) {
+			return (
+				<Game.Frame />
+			);
+		}
+	},
 	// TODO handle inputs and send data back to server
 	render: function(){
 		return (
-			<div class="game">
-				<p> Ohhai! </p>
-				<form action={this.props.url}>
-					
-					<GameFrame />
+			<div className="game">
+				<form action={this.props.url} onChange={this.handleChange} className="game__form">
+					{this.newFrameWhenNecessary()}
 				</form>
 			</div>
-		)
+		);
 	}
-})
+});
