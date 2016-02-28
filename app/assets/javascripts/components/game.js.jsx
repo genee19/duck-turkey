@@ -7,6 +7,12 @@ window.Game = React.createClass({
 	    	"over":false
     	};
 	},
+	handleChange: function(event){
+		// locate form from event.target
+		$form = $(event.target).closest('form.game__form');
+		$.post($form.attr('action'), $form.serialize()).done(function(){
+		})
+	},
 	frames: function() {
 		var result = [];
 		for (var frame in this.state.frames) {
