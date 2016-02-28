@@ -1,6 +1,11 @@
 window.Game = React.createClass({
-	componentDidMount: function() {
-	      // TODO load data from server
+	getInitialState: function(){
+	    return {
+	    	"score":0,
+	    	"write_to_last_frame":false,
+	    	"frames":[],
+	    	"over":false
+    	};
 	},
 	// TODO handle inputs and send data back to server
 	render: function(){
