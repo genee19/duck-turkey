@@ -109,6 +109,8 @@ class Game
 
   		break if @over
   	end
+
+  	result.write_to_last_frame = is_frame_started
   	
   	if frames.size == 11
   		frames[9][:rolls].concat(frames[10][:rolls])
