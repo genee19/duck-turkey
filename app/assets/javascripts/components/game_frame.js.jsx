@@ -3,16 +3,16 @@ window.Game.Frame = React.createClass({
     frame: React.PropTypes.object,
     is_final: React.PropTypes.bool
   },
-  getInitialState: function(){
+  getDefaultProps(){
       return {
         rolls: [],
         score: 0
     };
   },
-  inputs: function() {
 
+  inputs() {
   },
-  render: function() {
+  render() {
     return (
       <div className="game-frame">
         <div className="game-frame__container game-frame__container--inputs">
