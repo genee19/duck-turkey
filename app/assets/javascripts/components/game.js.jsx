@@ -3,7 +3,10 @@ window.Game = React.createClass({
 	    return {
 	    	"score":0,
 	    	"write_to_last_frame":false,
-	    	"frames":[],
+	    	"frames":[{
+	          rolls: [],
+	          score: 0
+	        }],
 	    	"over":false
     	};
 	},
