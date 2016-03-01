@@ -26,11 +26,12 @@ window.Game.Frame = React.createClass({
   render() {
     return (
       <div className={this.frameClass()}>
+        <div className="game-frame__output game-frame__output--num">#{this.props.num}</div>
         <div className="game-frame__container game-frame__container--inputs">
           <input name="rolls[]" type="number"/>
           <input name="rolls[]" type="number"/>
         </div>
-        <div className="game-frame__ouput--score"></div>
+        <div className="game-frame__output game-frame__output--score">{this.props.frame.score}</div>
       </div>
     );
   }
