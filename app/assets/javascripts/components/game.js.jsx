@@ -19,7 +19,7 @@ window.Game = React.createClass({
 			$form.serialize()
 		).done($.proxy(function(result){
 				// replace state with result
-				this.setState(this.newFrameWhenNecessary(result));
+				this.replaceState(this.newFrameWhenNecessary(result));
 			}, this) 
 		);
 	},
@@ -48,10 +48,18 @@ window.Game = React.createClass({
 		}
 		return state;
 	},
+	errorMessage: function() {
+		if (this.state.error > '') {
+			return (
+				<div className="game__output game__output--error">{this.state.error}</div>
+			);
+		}
+	},
 	render: function(){
 		return (
 			<div className="game">
 				<div className="game__output game__output--score">{this.state.score}</div>
+				{this.errorMessage()}
 				<form action={this.props.url} onChange={this.handleChange} className="game__form">
 					{this.frames()}
 				</form>
