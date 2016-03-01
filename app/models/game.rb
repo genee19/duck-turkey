@@ -35,7 +35,7 @@ class Game
 
   		# if this roll is not in between 0 and 10, this is an error
   		unless roll.is_a? Integer and roll >=0 and roll <=10
-  			register_game_status(result, {error: "Any roll may only be integer between 0 and 10, got #{roll} instead"})
+  			result.error = "Any roll may only be integer between 0 and 10, got #{roll} instead"
   			@over = true
   			break
   		end
@@ -76,7 +76,7 @@ class Game
   			# process the score of frame
   			# if error, game is over
   			unless frames.last[:error].blank?
-  				register_game_status result, {error: frames.last[:error]}
+  				result.error = frames.last[:error]
   				@over = true
   				break
 			end
@@ -123,10 +123,6 @@ class Game
   end
 
   private
-
-  def register_game_status(game, status)
-  	game.status = status
-  end
 
   def find_special_cases(rolls)
   	result = {score: rolls.sum}
