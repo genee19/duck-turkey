@@ -117,6 +117,12 @@ class Game
   		frames.delete_at(10)
   	end
 
+    previous_frame_score = 0
+    frames = frames.inject([]) do |new_frames, frame|
+      frame[:score] = previous_frame_score = previous_frame_score + frame[:score]
+      new_frames << frame
+    end
+
   	result.frames = frames
   	result.over = @over
   	return result
