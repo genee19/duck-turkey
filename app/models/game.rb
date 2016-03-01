@@ -105,7 +105,7 @@ class Game
 	  		end
   		end
 
-  		@over = true if frames.size == 11 and awarded_rolls == 0
+  		@over = true if (frames.size == 11) and (awarded_rolls == 0)
 
   		break if @over
   	end
