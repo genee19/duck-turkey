@@ -48,7 +48,6 @@ window.Game = React.createClass({
 		}
 		return state;
 	},
-	// TODO handle inputs and send data back to server
 	render: function(){
 		return (
 			<div className="game">
