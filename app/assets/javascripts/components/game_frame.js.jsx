@@ -5,8 +5,10 @@ window.Game.Frame = React.createClass({
   },
   getDefaultProps(){
       return {
-        rolls: [],
-        score: 0
+        frame: {
+          rolls: [],
+          score: 0
+        }
     };
   },
 
