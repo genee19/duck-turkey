@@ -1,28 +1,16 @@
-== README
+== Building and running
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is built with Ruby v.2.0.
 
-Things you may want to cover:
+To run locally you need to:
+- check out the project source
+- make sure you have the correct version of Ruby (2.0 or higher)
+- from the project folder, issue `bin/bundle install` command
+- from the project folder, issue `bin/rails s` command
+- visit `http://localhost:3000` in your browser
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+To run in a Vagrant virtual machine, you need to:
+- check out the project source
+- make sure you have Vagrant and Ansible installed
+- in the project folder issue `cd railsbox/development && vagrant up`
+- once Vagrant finishes provisioning, visit `192.168.20.50` in your browser
