@@ -25,8 +25,16 @@ window.Game = React.createClass({
 	},
 	frames: function() {
 		var result = [];
-		for (var frame in this.state.frames) {
-			result.push(<Game.Frame frame={frame} />);
+		for (var frameNum in this.state.frames) {
+			let frameProps = {
+				key: frameNum,
+				num: parseInt(frameNum, 10) + 1,
+				frame: this.state.frames[frameNum]
+			};
+			if (frameNum == 9) {
+				frameProps.is_final = true;
+			}
+			result.push(<Game.Frame {...frameProps} />);
 		}
 		return result;
 	},
