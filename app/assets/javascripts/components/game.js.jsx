@@ -19,9 +19,9 @@ window.Game = React.createClass({
 			$form.serialize()
 		).done($.proxy(function(result){
 				// replace state with result
-				this.setState(result)
+				this.setState(this.newFrameWhenNecessary(result));
 			}, this) 
-		)
+		);
 	},
 	frames: function() {
 		var result = [];
@@ -30,12 +30,15 @@ window.Game = React.createClass({
 		}
 		return result;
 	},
-	newFrameWhenNecessary: function() {
-		if (!this.state.write_to_last_frame) {
-			return (
-				<Game.Frame />
-			);
+	newFrameWhenNecessary: function(state) {
+		if (!state.write_to_last_frame && !state.over) {
+			// push a new empty frame to state.frames
+			state.frames.push({
+	          rolls: [],
+	          score: 0
+	        });
 		}
+		return state;
 	},
 	// TODO handle inputs and send data back to server
 	render: function(){
@@ -43,7 +46,6 @@ window.Game = React.createClass({
 			<div className="game">
 				<form action={this.props.url} onChange={this.handleChange} className="game__form">
 					{this.frames()}
-					{this.newFrameWhenNecessary()}
 				</form>
 			</div>
 		);
