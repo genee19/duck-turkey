@@ -8,9 +8,3 @@ To run locally you need to:
 - from the project folder, issue `bin/bundle install` command
 - from the project folder, issue `bin/rails s` command
 - visit `http://localhost:3000` in your browser
-
-To run in a Vagrant virtual machine, you need to:
-- check out the project source
-- make sure you have Vagrant and Ansible installed
-- in the project folder issue `cd railsbox/development && vagrant up`
-- once Vagrant finishes provisioning, visit `192.168.20.50` in your browser
