@@ -51,6 +51,7 @@ window.Game = React.createClass({
 	render: function(){
 		return (
 			<div className="game">
+				<div className="game__output game__output--score">{this.state.score}</div>
 				<form action={this.props.url} onChange={this.handleChange} className="game__form">
 					{this.frames()}
 				</form>
