@@ -34,7 +34,7 @@ class GameTest < ActiveSupport::TestCase
 				},
 				{
 					rolls: [1, 1],
-					score: 2
+					score: 14
 				}
 			], 
 			write_to_last_frame: false,
